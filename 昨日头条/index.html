@@ -30,7 +30,6 @@
             </ul>
         </div>
     </header>
-
     <main>
         <nav>
             <ul>
@@ -96,7 +95,15 @@
             <div id="hidden">看不见我</div>
         </section>
         <section id="rightNav">
-            <div id="search"><input type="text" name="keyname" value="" placeholder="用了一下午才写完的智能提示,快来使用吧!"></div>
+            <div id="search">
+                <form id="search" action="http://www.baidu.com/s" method="get" accept-charset="utf-8" name="myForm">
+                    <input type="text" autocomplete="off" maxlength="100" name="wd">
+                    <div class="suggestion-box">
+                        <ul class="suggestion-ct">
+                        </ul>
+                    </div>
+                </form>
+            </div>
             <div id="hot24"></div>
             <div class="item"></div>
             <div class="item"></div>
@@ -106,19 +113,13 @@
     <script src="./js/imgtabs.js"></script>
     <script src="./js/stickup.js"></script>
     <script>
-        $("#imgNav").each(function() {
+        $("#imgNav").each(function () {
             new ImgTabs($(this))
         })
-
-
-
-
-
         $("nav").stickup()
-            ///
+        ///
     </script>
-
-
+    <script src="./js/suggestion.js"></script>
 </body>
 
 </html>

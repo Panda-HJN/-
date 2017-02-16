@@ -14,6 +14,7 @@ ImgTabs.prototype.bindEvent = function() {
     })
 }
 ImgTabs.prototype.change = function(idx) {
+    console.log(idx)
     this.currentIdx = idx
     this.$lis.eq(idx).addClass("active").siblings().removeClass("active")
     this.$boxs.eq(idx).addClass("active").siblings().removeClass("active")

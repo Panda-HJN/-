@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>mod-tabs</title>
+    <title>OOP mod-tabs</title>
     <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
     <style type="text/css">
         body {
@@ -78,16 +78,7 @@
             display: flex;
         }
     </style>
-
 </head>
-
-
-
-
-
-
-
-
 
 <body>
     <div id="imgNav">
@@ -108,29 +99,45 @@
             <li><span>明星</span></li>
         </ul>
     </div>
-
-
     <script type="text/javascript">
-        function ImgTabs($tabs) { //预期: 整个组件以jQuery对象的形式传进来\
-            this.$lis = $tabs.find("ul.imgNavRight>li") //6各元素
-            this.$boxs = $tabs.find(".imgNavLeft>div") //留个元素
+        function ImgTabs($tabs) {
+            this.currentIdx = 0
+            this.$lis = $tabs.find("ul.imgNavRight>li")
+            this.$boxs = $tabs.find(".imgNavLeft>div")
             this.bindEvent()
+            this.autoChange()
         }
-        ImgTabs.prototype.bindEvent = function() {
-            var tabs = this
-            this.$lis.on("mouseenter", function() {
+        ImgTabs.prototype.bindEvent = function () {
+            var that = this
+            this.$lis.on("mouseenter", function () {
                 $this = $(this)
                 var idx = $this.index()
-                tabs.change(idx)
+                that.change(idx)
             })
         }
-        ImgTabs.prototype.change = function(idx) {
-            console.log(this)
+        ImgTabs.prototype.change = function (idx) {
+
+            this.currentIdx = idx
             this.$lis.eq(idx).addClass("active").siblings().removeClass("active")
             this.$boxs.eq(idx).addClass("active").siblings().removeClass("active")
+
+        }
+        ImgTabs.prototype.autoChange = function () {
+            var that = this
+            setInterval(function () {
+
+                console.log(that.currentIdx)
+                if (that.currentIdx == 5) {// holy shit!!　这是第几次被赋值和判断坑道了
+                    console.log(1111111)
+                    console.log(that.currentIdx)
+                    that.currentIdx = -1
+                }
+                that.change((that.currentIdx + 1))
+
+            }, 3000)
         }
 
-        $("#imgNav").each(function() {
+        $("#imgNav").each(function () {
             new ImgTabs($(this))
         })
     </script>

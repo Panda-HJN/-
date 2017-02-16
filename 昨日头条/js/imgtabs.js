@@ -5,30 +5,32 @@ function ImgTabs($tabs) {
     this.bindEvent()
     this.autoChange()
 }
-ImgTabs.prototype.bindEvent = function() {
-    var tabs = this
-    this.$lis.on("mouseenter", function() {
+ImgTabs.prototype.bindEvent = function () {
+    var that = this
+    this.$lis.on("mouseenter", function () {
         $this = $(this)
         var idx = $this.index()
-        tabs.change(idx)
+        that.change(idx)
     })
 }
-ImgTabs.prototype.change = function(idx) {
-    console.log(idx)
+ImgTabs.prototype.change = function (idx) {
+
     this.currentIdx = idx
     this.$lis.eq(idx).addClass("active").siblings().removeClass("active")
     this.$boxs.eq(idx).addClass("active").siblings().removeClass("active")
-    this.currentIdx = idx
+
 }
-ImgTabs.prototype.autoChange = function() {
+ImgTabs.prototype.autoChange = function () {
     var that = this
-    setInterval(function() {
-        if (that.currentIdx = 5) {
+    setInterval(function () {
+        console.log(that.currentIdx)
+        if (that.currentIdx == 5) {
             that.currentIdx = -1
         }
-        that.change((that.currentIdx + 1))
+        that.change(that.currentIdx + 1)
     }, 3000)
 }
-$("#imgNav").each(function() {
+
+$("#imgNav").each(function () {
     new ImgTabs($(this))
 })

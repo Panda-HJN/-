@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>昨日头条</title>
+    <link rel="stylesheet" type="text/css" href="./style/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./style/reset.css">
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="topBarLeft">
+            <div class="downApp">下载APP</div>
+            <div class="userCity">
+                <div class="currentCity"><span>那美克星</span></div>
+                <div class="weather"><span>晴</span></div>
+                <div class="temperature"><span>-3 ~ -15℃</span></div>
+            </div>
+        </div>
+        <div class="topBarRight">
+            <ul class="topBarNav">
+                <li><a href=""><span>登录</span></a></li>
+                <li><a href=""><span>问答</span></a></li>
+                <li><a href=""><span>头条号</span></a></li>
+                <li><a href=""><span>图虫</span></a></li>
+                <li><a href=""><span>反馈</span></a></li>
+                <li><a href=""><span>更多</span></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <a href=""><img src="./imgs/logo1.png" alt=""></a>
+                </li>
+                <li><a href=""><span>推荐</span></a></li>
+                <li><a href=""><span>热点</span></a></li>
+                <li><a href=""><span>视频</span></a></li>
+                <li><a href=""><span>图片</span></a></li>
+                <li><a href=""><span>段子</span></a></li>
+                <li><a href=""><span>社会</span></a></li>
+                <li><a href=""><span>娱乐</span></a></li>
+                <li><a href=""><span>科技</span></a></li>
+                <li><a href=""><span>体育</span></a></li>
+                <li><a href=""><span>财经</span></a></li>
+                <li><a href=""><span>搞笑</span></a></li>
+                <li><a href=""><span>更多</span></a></li>
+            </ul>
+        </nav>
+        <section id="mainContainer">
+            <div id="imgNav">
+                <div class="imgNavLeft">
+                    <div style="background:lightgreen;" class="imgNavBox active">
+                        <h3>title1</h3>
+                    </div>
+                    <div style="background:mediumvioletred;" class="imgNavBox">
+                        <h3>title2</h3>
+                    </div>
+                    <div style="background:yellow;" class="imgNavBox">
+                        <h3>title3</h3>
+                    </div>
+                    <div style="background:#ccc;" class="imgNavBox">
+                        <h3>title4</h3>
+                    </div>
+                    <div style="background:orangered;" class="imgNavBox">
+                        <h3>title5</h3>
+                    </div>
+                    <div style="background:deepskyblue;" class="imgNavBox">
+                        <h3>title6</h3>
+                    </div>
+                </div>
+                <ul class="imgNavRight">
+                    <li><span>要闻</span></li>
+                    <li><span>社会</span></li>
+                    <li><span>娱乐</span></li>
+                    <li><span>体育</span></li>
+                    <li><span>军事</span></li>
+                    <li><span>明星</span></li>
+                </ul>
+            </div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div id="hidden">看不见我</div>
+        </section>
+        <section id="rightNav">
+            <div id="search"><input type="text" name="keyname" value="" placeholder="用了一下午才写完的智能提示,快来使用吧!"></div>
+            <div id="hot24"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </section>
+    </main>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./js/imgtabs.js"></script>
+    <script src="./js/stickup.js"></script>
+    <script>
+        $("#imgNav").each(function() {
+            new ImgTabs($(this))
+        })
+
+
+
+
+
+        $("nav").stickup()
+            ///
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>mod-tabs</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style type="text/css">
+        body {
+            background: lightskyblue;
+        }
+        
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #imgNav {
+            display: flex;
+            height: 45vh;
+            background: #ccc;
+        }
+        
+        #imgNav>div.imgNavLeft {
+            display: flex;
+            background: #ccc;
+            flex-grow: 1;
+        }
+        
+        #imgNav>ul.imgNavRight {
+            display: flex;
+            flex-direction: column;
+            width: 90px;
+            height: 100%;
+            background: rgb(34, 34, 34);
+            color: white;
+        }
+        
+        #imgNav>ul.imgNavRight>li {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        #imgNav>ul.imgNavRight span {
+            align-self: center;
+            line-height: 100%;
+        }
+        
+        #imgNav>ul.imgNavRight li:hover {
+            align-self: center;
+            background: rgb(237, 64, 64);
+        }
+        
+        #imgNav>ul.imgNavRight li:hover::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 8px solid;
+            border-color: transparent rgba(237, 64, 64, .8) transparent transparent;
+            position: absolute;
+            left: -14px;
+            top: 50%;
+            margin-top: -8px;
+        }
+        
+        .imgNavBox {
+            display: none;
+        }
+        
+        #imgNav>.imgNavLeft>div.active {
+            display: flex;
+        }
+    </style>
+
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="imgNav">
+        <div class="imgNavLeft">
+            <div class="imgNavBox active">1</div>
+            <div class="imgNavBox">2</div>
+            <div class="imgNavBox">3</div>
+            <div class="imgNavBox">4</div>
+            <div class="imgNavBox">5</div>
+            <div class="imgNavBox">6</div>
+        </div>
+        <ul class="imgNavRight">
+            <li><span>要闻</span></li>
+            <li><span>社会</span></li>
+            <li><span>娱乐</span></li>
+            <li><span>体育</span></li>
+            <li><span>军事</span></li>
+            <li><span>明星</span></li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        function ImgTabs($tabs) { //预期: 整个组件以jQuery对象的形式传进来\
+            this.$lis = $tabs.find("ul.imgNavRight>li") //6各元素
+            this.$boxs = $tabs.find(".imgNavLeft>div") //留个元素
+            this.bindEvent()
+        }
+        ImgTabs.prototype.bindEvent = function() {
+            var tabs = this
+            this.$lis.on("mouseenter", function() {
+                $this = $(this)
+                var idx = $this.index()
+                tabs.change(idx)
+            })
+        }
+        ImgTabs.prototype.change = function(idx) {
+            console.log(this)
+            this.$lis.eq(idx).addClass("active").siblings().removeClass("active")
+            this.$boxs.eq(idx).addClass("active").siblings().removeClass("active")
+        }
+
+        $("#imgNav").each(function() {
+            new ImgTabs($(this))
+        })
+    </script>
+</body>
+
+</html>

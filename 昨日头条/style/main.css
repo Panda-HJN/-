@@ -1,0 +1,229 @@
+/*样式重置*/
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*顶栏样式*/
+
+header {
+    display: flex;
+    height: 34px;
+    line-height: 34px;
+    margin-bottom: 12px;
+    background: rgb(34, 34, 34);
+    color: white;
+    justify-content: space-between;
+}
+
+.downApp {
+    margin: 0 10px;
+}
+
+.topBarLeft {
+    display: flex;
+}
+
+.userCity {
+    display: flex;
+}
+
+.topBarRight {
+    display: flex;
+}
+
+.topBarNav {
+    display: flex;
+    list-style: none;
+    height: 34px;
+    line-height: 34px;
+}
+
+.topBarNav>li {
+    margin: 0 8px;
+}
+
+.topBarNav>li>a {
+    display: block;
+}
+
+
+/*主体部分样式*/
+
+main {
+    margin: 0 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    background: red;
+}
+
+#rightNav {
+    width: 28%;
+    flex-direction: column;
+    background: yellow;
+    align-self: flex-start;
+}
+
+
+/*左侧导航样式*/
+
+nav {
+    width: 110px;
+    height: 100vh;
+    min-height: 360px;
+}
+
+nav a {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+nav ul>li {
+    box-sizing: border-box;
+    height: 7.2%;
+    margin: 1px 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100%;
+    font-size: 1.1rem;
+}
+
+nav ul>li:nth-child(1) {
+    flex-grow: 1;
+}
+
+nav ul>li:nth-child(2) {
+    background: rgb(237, 64, 64);
+    border-radius: 4px;
+}
+
+.logo img {
+    width: 95%;
+    align-self: center;
+}
+
+nav ul>li span {
+    /*这一句是让文字在高度不确定元素中垂直居中的关键*/
+    align-self: center;
+    line-height: 100%;
+}
+
+nav ul>li:first-child:hover{
+    background: transparent;
+}
+nav ul>li:hover {
+    background: rgb(237, 64, 64);
+    border-radius: 4px;
+}
+
+
+/*中间区块样式*/
+
+#imgNav {
+    display: flex;
+    height: 48vh;
+    background: #ccc;
+}
+
+#imgNav>div.imgNavLeft {
+    display: flex;
+    background: #ccc;
+    flex-grow: 1;
+}
+
+#imgNav>div.imgNavLeft div {
+    width: 100%;
+}
+
+#imgNav>ul.imgNavRight {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 100%;
+    background: rgb(34, 34, 34);
+    color: white;
+}
+
+#imgNav>ul.imgNavRight>li {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#imgNav>ul.imgNavRight span {
+    align-self: center;
+    line-height: 100%;
+}
+
+#imgNav>ul.imgNavRight li:hover {
+    align-self: center;
+    background: rgb(237, 64, 64);
+}
+
+#imgNav>ul.imgNavRight li:hover::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 8px solid;
+    border-color: transparent rgba(237, 64, 64, .8) transparent transparent;
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.imgNavBox {
+    display: none;
+}
+
+#imgNav>.imgNavLeft>div.active {
+    display: flex;
+}
+
+.item {
+    box-sizing: border-box;
+    border: 2px solid black;
+    height: 24vh;
+    background: cornflowerblue;
+}
+
+
+/*右侧区块样式*/
+
+#hot24 {
+    height: 60vh;
+    background: blueviolet;
+}
+
+
+/*懒加载观察点专用*/
+
+#hidden {
+    display: none;
+}

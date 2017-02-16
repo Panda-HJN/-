@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .blue {
+            color: blue;
+        }
+        /*登陆后的样式*/
+        
+        .topBar {
+            background: #009999;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            font-size: 32px;
+            padding: 0 100px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px 0 rgba(1, 0, 0, 0.25);
+        }
+        /*每日复习:使用了absolute的元素 宽度和高度都会塌陷!*/
+        
+        .user {
+            margin-right: 40px;
+        }
+        
+        #todo {
+            padding-top: 40px;
+        }
+        
+        .newTask input {
+            display: flex;
+            height: 40px;
+            line-height: 40px;
+            font-size: 40px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        ol.todos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 100px;
+        }
+        
+        ol.todos>li {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background: #3399FF;
+            height: 40px;
+            line-height: 40px;
+            font-size: 24px;
+            padding: 10px 0;
+            margin: 10px;
+        }
+        
+        li input {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+        }
+        
+        i.fa-close {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+
+        <div id="app">
+            <section id="signInAndSignUp" v-if="!currentUser">
+                <div class="signUp" v-if="actionType === 'signUp'">
+                    <form @submit.prevent="signUp">
+                        <div class="formRow">
+                            用户名<input type="text" v-model="formData.username">
+                        </div>
+                        <div class="formRow">
+                            密码<input type="password" v-model="formData.password">
+                        </div>
+                        <div class="formActions">
+                            <input type="submit" value="注册">
+                        </div>
+                    </form>
+                </div>
+                <div class="login" v-if="actionType === 'login'">
+                    <form @submit.prevent="login">
+                        <div class="formRow">
+                            用户名<input type="text" v-model="formData.username">
+                        </div>
+                        <div class="formRow">
+                            密码<input type="password" v-model="formData.password">
+                        </div>
+                        <div class="formActions">
+                            <input type="submit" value="登入">
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <label><input type="radio" name="type" value="signUp" v-model="actionType">注册</label>
+                    <label><input type="radio" name="type" value="login" v-model="actionType">登入</label>
+                </div>
+                <h6>登录界面计划施工成这样</h6>
+                <img src="p1.jpg" alt="">
+            </section>
+
+            <section id="todo" v-if="currentUser">
+                <div class="topBar">
+                    <div class="user"><i class="fa fa-user fa-fw"></i> {{currentUser.username}}</div><button class="logout" @click="logout">登出</button>
+                </div>
+                <div class="mainTodo">
+
+                    <div class="newTask">
+                        <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="请输入代办事项">
+                    </div>
+                    <i class="fa fa-fw check-square"></i>
+                    <ol class="todos">
+                        <li v-for="todo in todoList">
+                            <div class="left">
+                                <input type="checkbox" v-model="todo.done " @click="doneTodo(todo) ">
+                                <span>{{ todo.title }}</span>
+                            </div>
+                            <div class="right "><span>{{ todo.todoTime }}</span>
+                                <span class="blue " v-if="todo.done ">已完成</span>
+                                <span class="red " v-else>未完成</span>
+                                <i class="fa fa-close" @click="removeTodo(todo) "></i>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+            </section>
+        </div>
+        <script src="bundle.js "></script>
+    </body>
+</body>
+
+</html>

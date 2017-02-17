@@ -128,7 +128,7 @@ function getSuggestion() {
 	}
 
 	$.ajax({
-		url: "http://suggestion.baidu.com/su",
+		url: "//suggestion.baidu.com/su",
 		type: "GET",
 		dataType: 'jsonp',
 		jsonp: 'jsoncallback',

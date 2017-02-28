@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>loading-css3</title>
+    <style>
+        body {
+            background: #0DCECB;
+        }
+        
+        @keyframes myfirst {
+            0% {
+                transform: rotate(0deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        
+        @keyframes my {
+            0% {
+                transform: scaleY(1)
+            }
+            20% {
+                transform: scaleY(0.5)
+            }
+            100% {
+                transform: scaleY(1)
+            }
+        }
+        
+        .load1 {
+            animation: myfirst 1s linear infinite;
+            border: 15px solid #ccc;
+            border-top: 15px solid #fff;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        
+        li {
+            position: relative;
+            left: 50%;
+            list-style: none;
+            animation: 1s my ease-in-out infinite;
+            width: 9px;
+            height: 30px;
+            background: #fff;
+            margin: 0 2px;
+            float: left;
+        }
+        
+        .list2 {
+            animation-delay: .15s;
+        }
+        
+        .list3 {
+            animation-delay: .3s;
+        }
+        
+        @keyframes left {
+            0% {
+                transform: translateX(-30px)
+            }
+            50% {
+                transform: translateX(0px)
+            }
+            100% {
+                transform: translateX(0px)
+            }
+        }
+        
+        @keyframes right {
+            0% {
+                transform: translateX(0px)
+            }
+            50% {
+                transform: translateX(0px)
+            }
+            100% {
+                transform: translateX(30px)
+            }
+        }
+        
+        .load2 {
+            margin: 60px auto;
+            background: #fff;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+        }
+        
+        .load2:after {
+            position: relative;
+            animation: .6s left infinite alternate linear;
+            display: block;
+            content: '';
+            background: #fff;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            right: 20px;
+            bottom: 20px;
+        }
+        
+        .load2:before {
+            position: relative;
+            animation: .6s right infinite alternate linear;
+            display: block;
+            content: '';
+            background: #fff;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="load1"></div>
+    <br>
+    <br>
+    <br>
+    <ul>
+        <li class="list1"></li>
+        <li class="list2"></li>
+        <li class="list3"></li>
+    </ul>
+    <br>
+    <div class="load2"></div>
+</body>
+
+</html>

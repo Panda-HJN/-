@@ -67,7 +67,7 @@ header {
     width: 0;
     height: 0;
     border: 4px solid;
-    border-color: #f5f6f7 transparent transparent transparent;
+    border-color: #ccc transparent transparent transparent;
     position: absolute;
     right: -18px;
     top: 50%;
@@ -145,7 +145,7 @@ main {
     width: 52vw;
 }
 
-#right-nav {
+#rightNav {
     box-sizing: border-box;
     width: 25vw;
     flex-direction: column;
@@ -173,7 +173,7 @@ input[type=text]:focus {
 }
 
 .suggestion-box {
-    width: 25vw;
+    width: 28vw;
     position: relative;
     top: 1px;
     background: ghostwhite;
@@ -183,8 +183,6 @@ input[type=text]:focus {
 }
 
 .suggestion-ct {
-    list-style: decimal;
-    list-style-position: inside;
     position: absolute;
     top: 0;
     left: 0;
@@ -200,7 +198,7 @@ input[type=text]:focus {
     font-size: 14px;
     box-sizing: border-box;
     padding: 10px;
-    width: 25vw;
+    width: 28vw;
 }
 
 .suggestion-ct li:first-child,
@@ -208,7 +206,7 @@ input[type=text]:focus {
     border-radius: 5px;
 }
 
-.suggestion-box ol.hide {
+.suggestion-box ul.hide {
     display: none;
 }
 
@@ -261,10 +259,10 @@ nav ul>li:nth-child(2) {
     border-radius: 4px;
 }
 
-.logo img {
+.logo img{
     width: 95%;
     margin-top: -10px;
-    transform: scale(1.1, 1.1);
+    transform: scale(1.1,1.1);
     align-self: center;
 }
 
@@ -290,12 +288,12 @@ nav ul>li:hover {
 #imgNav {
     display: flex;
     height: 48vh;
-    background: rgb(34, 34, 34);
+    background: #ccc;
 }
 
 #imgNav>div.imgNavLeft {
     display: flex;
-    background: rgb(34, 34, 34);
+    background: #ccc;
     flex-grow: 1;
     cursor: pointer;
 }
@@ -356,11 +354,9 @@ nav ul>li:hover {
     height: 100%;
     transition: 0.8s;
 }
-
-.img-nav-box>img:hover {
-    transform: scale(1.05, 1.05)
+.img-nav-box>img:hover{
+    transform:scale(1.05,1.05)
 }
-
 .img-nav-box>h2 {
     position: absolute;
     bottom: 0;
@@ -401,8 +397,8 @@ nav ul>li:hover {
     box-sizing: border-box;
     margin-top: 8px;
     padding-bottom: 8px;
-    border-top: 2px #f5f6f7 solid;
-    height: 22vh;
+    border-top: 2px #ccc solid;
+    height: 25vh;
     color: black;
     overflow: hidden;
 }
@@ -416,7 +412,6 @@ nav ul>li:hover {
 }
 
 .item-news {
-    position: relative;
     padding: 16px;
 }
 
@@ -429,18 +424,16 @@ nav ul>li:hover {
     height: 100%;
     margin: 8px 0;
     border-bottom: 1px transparent solid;
-    /*background: #f5f6f7;*/
+    /*background: #ccc;*/
 }
 
 .item-img img {
     width: 100%;
     transition: .8s;
 }
-
-.item-img img:hover {
-    transform: scale(1.1, 1.1)
+.item-img img:hover{
+    transform: scale(1.1,1.1)
 }
-
 .item-news {
     display: flex;
     flex-grow: 1;
@@ -454,14 +447,12 @@ nav ul>li:hover {
 }
 
 .item-news-info {
-    position: relative;
-    top: 15px;
     box-sizing: border-box;
     padding-top: 1px;
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
-    /*background: #f5f6f7;*/
+    /*background: #ccc;*/
     font-size: 18px;
 }
 
@@ -470,13 +461,11 @@ nav ul>li:hover {
     margin: 0 16px;
     color: #87A5B5;
     cursor: pointer;
-    font-size: 14px;
 }
 
 .item-news-info a.comment {
     color: #87A5B5;
     margin-left: 20px;
-    font-size: 14px;
 }
 
 .item-news-info a.comment:hover {
@@ -485,173 +474,38 @@ nav ul>li:hover {
 
 .close-news {
     display: block;
-    font-size: 14px;
+    font-size: 24px;
     color: #bbb;
     margin-right: 20px;
     cursor: pointer;
 }
-
-.close-news>span:first-child {
+.close-news>span:first-child{
     display: none;
+}
+
+.close-news:hover{
     background: rgb(237, 64, 64);
-    padding: 2px 5px;
-    border-radius: 3px;
-}
-
-.close-news>span:last-child {
-    font-size: 1rem;
-}
-
-.close-news:hover {
     color: white;
-    border-radius: 2px;
 }
-
-.close-news:hover>span:first-child {
+.close-news:hover>span:first-child{
     display: inline;
 }
-
-.close-news:hover>span:last-child {
+.close-news:hover>span:last-child{
     display: none;
 }
+
 
 
 /*右侧区块样式*/
 
-#top-ad-right {
-    width: 25vw;
-    height: 23vw;
-    background: #f5f6f7;
-    display: flex;
+#hot24 {
+    height: 60vh;
+    background: blueviolet;
 }
 
-#top-ad-right>img {
-    width: 22vw;
-    height: 20vw;
-    margin: auto;
-}
 
-#hot-24 {
-    margin-top: 2vw;
-    border-top: 2px solid #ed4040;
-    height: 35vw;
-    background: #f5f6f7;
-}
-
-.hot-24-ct {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 0 24px 24px 24px;
-}
-
-.hot-24-ct h3 {
-    height: 8%;
-    margin-bottom: 5px;
-}
-
-.hot-24-ct .item-24 {
-    height: 22%;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    align-content: space-between;
-}
-
-.item-24:last-child {
-    border-bottom: 0px;
-}
-
-.item-24 .img-24 img {
-    height: 100%;
-}
-
-.item-24 .info-24 {
-    padding-left: 10px;
-    vertical-align: middle;
-    font-size: 14px;
-    line-height: 20px;
-    max-height: 40px;
-    text-overflow: ellipsis;
-}
-#copyright{
-    margin-top: 24px;
-    padding: 24px;
-    background: #f5f6f7;
-    color: #999;
-    font-size: 14px;
-}
 /*懒加载观察点专用*/
-
-#load-more {
-    display: flex;
-    border-radius: 4px;
-    margin: 20px 0;
-    height: 2rem;
-    line-height: 2rem;
-    background: #0099FF;
-    text-align: center;
-}
-
-#load-more>div {
-    margin: auto;
-    display: flex;
-    align-content: center;
-}
-
-#load-more>div>div {
-    animation: 1s load ease-in-out infinite;
-    width: 10px;
-    height: 30px;
-    background: white;
-    margin: 0 2px;
-}
-
-#load-more .load2 {
-    animation-delay: .15s;
-}
-
-#load-more .load3 {
-    animation-delay: .3s;
-}
-
-#load-more .load4 {
-    animation-delay: .45s;
-}
-
-@keyframes load {
-    0% {
-        transform: scaleY(1)
-    }
-    50% {
-        transform: scaleY(0.5)
-    }
-    100% {
-        transform: scaleY(1)
-    }
-}
 
 #hidden {
     display: none;
-    margin-top: -10px;
-}
-
-
-/*gototop*/
-
-#go-top {
-    box-sizing: border-box;
-    background: rgba(248, 89, 89, .8);
-    position: fixed;
-    bottom: 12px;
-    right: 2px;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: none;
-    line-height: 40px;
-    font-size: 24px;
-    text-align: center;
-    color: white;
 }

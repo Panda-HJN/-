@@ -1,0 +1,11 @@
+{
+  "name": "toutiao2nd",
+  "version": "1.0.0",
+  "description": "今��昨日头条",
+  "main": "./js/entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "韩佳宁",
+  "license": "ISC"
+}

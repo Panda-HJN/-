@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div{
+        width:100vw;
+        height:100vh;
+    }
+        div#d1 {
+            ackground: #4CB8C4;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #4CB8C4, #3CD3AD);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #4CB8C4, #3CD3AD);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        div#d2 {
+            background: #FF512F;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #FF512F, #F09819);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #FF512F, #F09819);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        DIV#d3 {
+            background: #FF512F;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #FF512F, #DD2476);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #FF512F, #DD2476);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        div#d4 {
+            background: #F09819;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #F09819, #EDDE5D);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #F09819, #EDDE5D);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        div#d5 {
+            background: #3CA55C;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #3CA55C, #B5AC49);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #3CA55C, #B5AC49);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        
+        div#d6 {
+            background: #16A085;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #16A085, #F4D03F);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #16A085, #F4D03F);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+</head>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<div id="d4"></div>
+<div id="d5"></div>
+<div id="d6"></div>
+
+<body>
+    <script src="jquery.min.js"></script>
+    <script>
+        var fullPage = (function () {
+            var curIndex = 0,
+                isWheeling = false;
+
+            var winH = $(window).height();
+
+            setSize();
+
+            function setSize() {
+                $('.main>div').height(winH);
+                $('.mark').css({
+                    'top': winH / 2 - $('.mark').height() / 2
+                });
+            }
+
+
+
+            function setSelected() {
+                $('.selected').removeClass('selected')
+                $('.mark li').eq(curIndex).children().addClass('selected');
+                $('body').animate({
+                    'scrollTop': winH * curIndex
+                }, 500, function () {
+                    setTimeout(function () {
+                        isWheeling = false;
+                    }, 300);
+                });
+            }
+
+            function bindEvent() {
+                $(window).on('wheel', function (e) {
+                    if (isWheeling) {
+                        e.preventDefault();
+                        return;
+                    }
+
+                    var wheelDir = (e.originalEvent.deltaY > 0) ? "down" : "up";
+                    if ((wheelDir === 'down' && curIndex === 6) || (wheelDir === 'up' && curIndex ===
+                            0)) {
+                        return;
+                    }
+                    isWheeling = true;
+                    curIndex = (wheelDir === 'down') ? (curIndex + 1) : (curIndex - 1);
+                    setSelected();
+
+                });
+                $('.mark').on('click', 'a', function (e) {
+                    curIndex = $(this).parent().index();
+                    setSelected();
+                });
+                $(window).on('resize', function () {
+                    winH = $(window).height();
+                    setSize();
+                });
+            }
+            return {
+                bindEvent: bindEvent
+            };
+
+        })();
+
+        fullPage.bindEvent();
+    </script>
+</body>
+
+</html>

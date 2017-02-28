@@ -2,14 +2,14 @@
     <form id="search" action="http://www.baidu.com/s" method="get" accept-charset="utf-8" name="myForm">
         <input type="text" autocomplete="on" maxlength="100" name="wd">
         <div class="suggestion-box">
-            <ol class="suggestion-ct">
+            <ul class="suggestion-ct">
                 <li class="suggestion-item">1</li>
-            </ol>
+            </ul>
         </div>
     </form>
 */
 var inputBlock = $("#search>input") //输入框
-var suggestionCt = $('#search ol.suggestion-ct') // ol 
+var suggestionCt = $('#search ul.suggestion-ct') // ul 
 var curIndex = -1 //下拉列表中当前被选中的,啥也没选是-1 选中第一个就是0 ......
 
 //绑定
@@ -43,7 +43,7 @@ inputBlock.on('focus', function () {
 function keyEvent(event) { //参数是事件对象
 	let myEvent = event
 	let keyCode = myEvent.keyCode
-	let suggestionItems = $(' #search  ol.suggestion-ct>li') //所有的提示li
+	let suggestionItems = $(' #search  ul.suggestion-ct>li') //所有的提示li
 
 	if (keyCode == 40) { // 方向键下
 		moveDown(suggestionItems)
@@ -133,7 +133,7 @@ function render(resData) {
 		//执行一次变得到一组字符串形式的 li
 	}
 	var $tpl = $(tpl) //此时的tpl 是多组li 拼在一起的字符串
-	$('#search ol.suggestion-ct').append($tpl) //插进去
+	$('#search ul.suggestion-ct').append($tpl) //插进去
 	//为新生成li绑定事件
 	$("#search li.suggestion-item").on('mouseenter', function (event) {
 		mouseEvent(event)
